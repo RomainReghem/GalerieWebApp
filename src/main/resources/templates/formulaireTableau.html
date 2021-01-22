@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Ajouter un tableau</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="../static/css/style.css"/>	
+	</head>
+	<body>
+		<h1>Ajouter un tableau</h1>
+                <form th:object="${tableau}" method="POST" th:action="@{save}">
+                    <div>
+			<label for="titre">Nom:</label>			
+                        <input type="text" th:field="*{titre}" placeholder="Nom du tableau"/><br/>                
+			
+                    </div><br/>
+                    <div>
+			<label for="nom">Auteur:</label>
+                        <select>                            
+                            <option th:each="a: *{auteur}" th:text="${a.nom}"></option>
+                        </select>
+                    </div>
+                    <div>
+			<label for="support">Support:</label>
+			<input type="text" th:field="*{support}" placeholder="Support du tableau"/>				
+                    </div><br/>
+                    <div>
+			<label for="dimension">Dimensions:</label>
+			<input type="text" th:field="*{dimension}" placeholder="Dimensions du tableau"/>				
+                    </div><br/>
+                    <input type="submit" value="Enregistrer" /> 
+                    <input type="reset" value="Réinitialiser" />
+                </form>
+                <hr/>
+		<a th:href="@{/}" href="../static/index.html">Retour au menu</a>
+                
+        </body>
+</html>

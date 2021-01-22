@@ -18,6 +18,12 @@ th {
 	background-color: #4CAF50;
 	color: white;
 }
+table {
+    empty-cells: show;
+}
+thead th {
+    text-align: center;
+}
 
 .column{
 	width:50%;
